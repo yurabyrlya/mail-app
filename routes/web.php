@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ApiKeyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
+
+
+//API KEY routes
+Route::post('/api-key/validate', [ApiKeyController::class, 'validateAndSave'])->name('api-key.validate');
+Route::get('api-key', [ApiKeyController::class, 'load'])->name('api-key.load');
+
+//Subscribers manager routes
+Route::resource('subscribers', 'App\Http\Controllers\SubscriberController');
