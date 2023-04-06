@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\ApiKey;
+use MailerLite\Exceptions\MailerLiteHttpException;
 use MailerLite\MailerLite;
 
 class ApiKeyController extends Controller
@@ -18,6 +19,7 @@ class ApiKeyController extends Controller
      */
     public function validateAndSave(Request $request) : JsonResponse
     {
+
         // Validate the request data
         $validator = Validator::make($request->all(), [
             'api_key' => 'required|string',
@@ -33,21 +35,31 @@ class ApiKeyController extends Controller
 
         // Validate the API key against the MailerLite API
         $mailerLite = new MailerLite(['api_key' => $request->input('api_key')]);
+        $response = [];
+        try {
+            $response = $mailerLite->subscribers->get();
+        } catch (MailerLiteHttpException $e){
+            $response['status_code'] = $e->getCode();
+            $response['message'] = $e->getMessage();
+        }
 
-        $response = $mailerLite->subscribers->get();
 
         // If the API key is not valid, return an error response
         if ($response['status_code'] !== 200) {
             return response()->json([
                 'success' => false,
                 'errors' => [
-                    'api_key' => ['The provided API key is not valid.'],
+                    'api_key' => [$response['message']],
                 ],
             ], 422);
         }
-
+        $apiKey = ApiKey::first();
         // Save the valid API key in the database
-        $apiKey = ApiKey::firstOrNew(['api_key' => $request->input('api_key')]);
+        if ($apiKey){
+            $apiKey->api_key = $request->input('api_key');
+        } else {
+            $apiKey = ApiKey::create(['api_key' => $request->input('api_key')]);
+        }
         $apiKey->save();
 
         return response()->json([
@@ -64,7 +76,7 @@ class ApiKeyController extends Controller
     public function load(): JsonResponse
     {
         return response()->json([
-            'api_key' => (bool)ApiKey::latest()->first(),
+            'api_key' => (bool)ApiKey::first(),
         ]);
     }
 }
