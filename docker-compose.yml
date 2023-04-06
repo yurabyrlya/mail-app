@@ -1,6 +1,7 @@
 version: '3'
 services:
     app:
+        container_name: mail-app
         build:
             context: .
             dockerfile: Dockerfile
@@ -10,6 +11,7 @@ services:
             - .:/var/www/html
     db:
         image: mysql:5
+        container_name: mysql-db
         ports:
             - "3306:3306"
         volumes:
