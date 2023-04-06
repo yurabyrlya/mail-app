@@ -14,10 +14,9 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
-        "vue-loader": "^15.10.1",
-        "vue-template-compiler": "^2.7.14"
+        "vue-loader": "^16.8.3"
     },
     "dependencies": {
-        "vue": "^2.7.14"
+        "vue": "^3.2.36"
     }
 }

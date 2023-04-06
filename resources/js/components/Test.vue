@@ -9,7 +9,7 @@ export default {
     name: 'ExampleComponent',
     data() {
         return {
-            name: 'Vue'
+            name: 'Vue 3'
         }
     }
 }

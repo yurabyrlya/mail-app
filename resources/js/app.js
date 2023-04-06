@@ -1,13 +1,10 @@
-require('./bootstrap');
-
-import Vue from 'vue';
+import { createApp } from 'vue';
 import ExampleComponent from './components/Test.vue';
 
-Vue.component('example-component', ExampleComponent);
-
-new Vue({
-    el: '#app',
+const app = createApp({
+    components: {
+        ExampleComponent,
+    },
 });
 
-
-
+app.mount('#app');
