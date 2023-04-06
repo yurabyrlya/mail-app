@@ -1,9 +1,9 @@
 import { createApp } from 'vue';
-import ExampleComponent from './components/Test.vue';
+import SubscribersList from './components/SubscribersList.vue';
 
 const app = createApp({
     components: {
-        ExampleComponent,
+        SubscribersList,
     },
 });
 
