@@ -46,10 +46,12 @@ WORKDIR /var/www/html
 COPY . .
 
 # Install project dependencies
-RUN composer install --no-interaction
+RUN composer install --no-interaction --no-ansi --no-progress --prefer-dist
+
 
 # Expose port 8000 for Laravel development server
 EXPOSE 8000
+
 
 # Start Laravel development server
 CMD php artisan serve --host=0.0.0.0 --port=8000

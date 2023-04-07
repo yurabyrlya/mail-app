@@ -9,6 +9,7 @@ services:
             - "8000:8000"
         volumes:
             - .:/var/www/html
+            - vendor:/var/www/html/vendor
     db:
         image: mysql:5
         container_name: mysql-db
@@ -23,3 +24,4 @@ services:
             - MYSQL_PASSWORD=secret
 volumes:
     db_data:
+    vendor:
