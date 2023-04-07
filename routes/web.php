@@ -17,10 +17,12 @@ Route::get('/', function () {
     return view('app');
 });
 
-
+Route::prefix('api')->group(function (){
 //API KEY routes
-Route::post('/api-key/validate', [ApiKeyController::class, 'validateAndSave'])->name('api-key.validate');
-Route::get('api-key', [ApiKeyController::class, 'load'])->name('api-key.load');
+    Route::post('api-key/validate', [ApiKeyController::class, 'validateAndSave'])->name('api-key.validate');
+    Route::get('api-key', [ApiKeyController::class, 'load'])->name('api-key.load');
 
 //Subscribers manager routes
-Route::resource('subscribers', 'App\Http\Controllers\SubscriberController');
+    Route::resource('subscribers', 'App\Http\Controllers\SubscriberController');
+
+});

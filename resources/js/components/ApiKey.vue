@@ -18,7 +18,7 @@ const successResponse = reactive({
  */
 
 const saveApiKey = async () => {
-    await axios.post('/api-key/validate', {
+    await axios.post('api/api-key/validate', {
         'api_key': apiKey.value
     }).then(response => {
 
