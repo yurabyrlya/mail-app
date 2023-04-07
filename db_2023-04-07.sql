@@ -1,0 +1,53 @@
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 4541
+#
+# http://www.sequelpro.com/
+# https://github.com/sequelpro/sequelpro
+#
+# Host: 127.0.0.1 (MySQL 5.7.41)
+# Database: db
+# Generation Time: 2023-04-07 13:34:09 +0000
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table api_keys
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `api_keys`;
+
+CREATE TABLE `api_keys` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `api_key` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+LOCK TABLES `api_keys` WRITE;
+/*!40000 ALTER TABLE `api_keys` DISABLE KEYS */;
+
+INSERT INTO `api_keys` (`id`, `api_key`, `created_at`, `updated_at`)
+VALUES
+	(2,'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNzI0ZGIzYzYzYjkxZjNjOTRlMjM0YTBmNDAzZjE3NDllZTUxMmU0ODFhMzY2OGY2MTdkZTE2MmViMjMzYzgzNDRmYWJhZjZhMmFhNTBjZjUiLCJpYXQiOjE2ODA2ODI1MzguODc0NDEyLCJuYmYiOjE2ODA2ODI1MzguODc0NDE0LCJleHAiOjQ4MzYzNTYxMzguODY5MDM1LCJzdWIiOiI0MTk5ODgiLCJzY29wZXMiOltdfQ.GsV_JhfJs_OA8aqRGKOzwaq6mvZ-q7-rTxVGwirh1ESEPEX9HwB7uDMJiZH6WGinG8p95UlSH_G1RMc9Ufjt9ae2NeqmTAixLDSfO1wmBRqAekLk5mO6IIwpkWABxjA4G1ZE2yC1mZThY0OfGddtpmFqYdMRjrLJOibCR0ENM7JqKlD-3BTJrJ2Rkc-KPttQiTAqhiNb0h99gIFvk7bIEGu_ZEJNJ9ytI2BVJgjBU3_u9ctGTQTY_PgL4frC0QcxmNBiuIu5RVjlz6cCd40p9Ji8CEokb0Z6VUWBY4QoHkfIx_mXQHLZvXRopBMLa-JGXhOSKIA5sHEIiykshxupaGMw4hpnBsEplvflr5LWy_KQUKh9AmNJk9pUhPg_wlxx7dia3dMcGXFojJTK5Nn_sPPV4pMf98caRuj9g-xpmz3Q-qeYwzwpuyjZyBRf_HYNNrzF0f2_weIFrOXl3rjXA1wNn-YJR8LvvEZfybsEEtADs_WN7_cFNRuO8PZDu8R16g5Qgdra6WlSzQBuSDfU_g39oSAMjMMiOVkQqFaGoN0wTlKkoU5F7-bNWc_7tzFo5oalVyfQ_O59_AkHozhpNVSD9xMyJ_EQZ8sDULAOrEBQahJVCHMNd5sEFJ1ZMzIoBwceR_5OvkkpFhGMhLToamo2e-L5SiMzaIpeh3hJD-w','2023-04-07 13:21:15','2023-04-07 13:21:15');
+
+/*!40000 ALTER TABLE `api_keys` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
