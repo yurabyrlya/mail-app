@@ -29,5 +29,9 @@ Run the following command to run the tests within the container:
 
 `php artisan test`
 
+PS:
+SQL dump DB file in main app directory
+`db_2023-04-07.sql`
+
 
 
